@@ -1,0 +1,7 @@
+<mat-spinner *ngIf="unloaded" style="margin:auto;margin-top:20vh;"></mat-spinner>
+<mat-list *ngIf="!unloaded">
+    <h3 mat-subheader style="color:rgba(0,0,0,.54);">Music</h3>
+    <mat-list-item *ngFor="let song of music" (click)="openViewer(song.id, song.title);">
+        <h4 mat-line>{{song.title}}</h4>
+    </mat-list-item>
+</mat-list>

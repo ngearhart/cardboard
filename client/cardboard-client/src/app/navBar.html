@@ -1,0 +1,4 @@
+<button mat-button color="primary" *ngFor="let link of objectKeys(links)" [routerLink]="links[link]" style="width:100%;text-align: left;">
+    {{link}}
+    <mat-icon style="float:right; padding-top: 4%;" class="rotating-icon mat-icon" role="img" svgicon="keyboard_arrow_right" aria-hidden="true"><svg focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path></svg></mat-icon>
+</button>

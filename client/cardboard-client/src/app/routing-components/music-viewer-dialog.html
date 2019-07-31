@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>{{title}}</h1>
+<div mat-dialog-content>
+    <mat-spinner *ngIf="!frameLoaded" style="margin:auto;margin-top:20vh;"></mat-spinner>
+    <iframe #iframe [src]="url" (load)="iframeLoaded()" style="height: 60vh;width:45vw;visibility:hidden;"></iframe>
+    <div style="width:45vw;padding-left:1em;height:60vh;float:right;">
+        <h3>Content</h3>
+    </div>
+</div>
+<div mat-dialog-actions style="float:right;">
+    <button mat-button (click)="close()">Cancel</button>
+    <button mat-button [mat-dialog-close]="" cdkFocusInitial>Save</button>
+</div>
