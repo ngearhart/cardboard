@@ -35,7 +35,7 @@
         return new Promise((resolve, reject) => {
             client.folders.get(folderId).then((folder) => {
                 resolve(folder.item_collection.entries);
-            });
+            }).catch((err) => reject(err));
         });
     }
 

@@ -14,7 +14,7 @@
   "author": "Noah Gearhart",
   "license": "ISC",
   "dependencies": {
-    "box-node-sdk": "^1.22.0",
-    "express": "^4.16.4"
+    "box-node-sdk": "^1.29.0",
+    "express": "^4.17.1"
   }
 }

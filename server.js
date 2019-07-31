@@ -22,7 +22,10 @@ app.get('/box-api/:method', (req, res) => {
         case "list-music":
             box.getFolderContents(57913274114).then(entries => {
                 res.json(box.extractFileData(entries));
+            }).catch((err) => {
+                console.log(err);
             });
+            break;
         case "download":
             box.getReadStream('' + req.query.id).then(stream => {
                 //res.contentType("application/pdf");
@@ -32,8 +35,8 @@ app.get('/box-api/:method', (req, res) => {
                     'Content-Disposition': "inline; filename='music.pdf';"
                 });
                 stream.pipe(res);
-            });
-        break;
+            }).catch((err) => console.log(err));
+            break;
     }
     //res.sendFile(path.join(__dirname, "posts/posts.json"));
 });
