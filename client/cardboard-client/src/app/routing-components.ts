@@ -1,5 +1,5 @@
 import { Component, ViewChild, Inject, ElementRef, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { MatSpinner } from '@angular/material/progress-spinner';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { DomSanitizer, SafeUrl, SafeResourceUrl } from '@angular/platform-browser';
@@ -15,11 +15,11 @@ export class MusicManagerComponent {
     unloaded: boolean = true;
     //ViewChild('loading') spinner: MatSpinner;
 
-    constructor(http: Http, private dialog: MatDialog) {
+    constructor(http: HttpClient, private dialog: MatDialog) {
         http.get("http://" + window.location.hostname + "/box-api/list-music").subscribe(res => {
             this.unloaded = false;
-            var data = res.json();
-            this.music = data;
+            //var data = JSON.parse(res);
+            this.music = res as any[];
         });
     }
 
@@ -48,7 +48,7 @@ export class MusicViewerDialog implements OnInit {
 
     frameLoaded: boolean = false;
     
-    @ViewChild('iframe') iframe: ElementRef;
+    @ViewChild('iframe', { static: true }) iframe: ElementRef;
 
     constructor(
         private self: MatDialogRef<MusicViewerDialog>,

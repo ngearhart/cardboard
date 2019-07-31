@@ -10,7 +10,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MusicManagerComponent, PartManagerComponent, UserManagerComponent, MusicViewerDialog } from './routing-components';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,7 @@ import { HttpModule } from '@angular/http';
     BrowserAnimationsModule,
     MatIconModule,
     MatButtonModule,
-    HttpModule,
+    HttpClientModule,
     MatProgressSpinnerModule,
     MatListModule,
     MatDialogModule
